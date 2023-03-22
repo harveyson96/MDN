@@ -40,7 +40,7 @@ function checkGuess(){
     // prepare for next guess
     guessCount ++;
     guessField.value = ''
-    guessField.focus();
+    guessField.focus(); // put cursor in the text field
 }
 // game end set up 
 function setGameOver() {
