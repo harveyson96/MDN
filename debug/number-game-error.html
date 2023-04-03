@@ -45,7 +45,7 @@
   </body>
 
   <script>
-    let randomNumber = Math.floor(Math.random()) + 1;
+    let randomNumber = Math.floor(Math.random() * 100) + 1; // random always 1
     const guesses = document.querySelector(".guesses");
     const lastResult = document.querySelector(".lastResult");
     const lowOrHi = document.querySelector(".lowOrHi"); //lowOrHi is a class, class selector is missing
