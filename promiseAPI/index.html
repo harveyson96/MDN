@@ -1,0 +1,39 @@
+<label>Name:</label>
+<input id="name" type="string" />
+</br>
+<label>Delay:</label>
+<input id="delay" type="string" />
+</br>
+<button id="set-alarm">Set Alarm</button>
+<div id="output"></div>
+
+<script>
+  const output = document.querySelector("#output");
+  const button = document.querySelector("#set-alarm");
+  const name = document.querySelector("#name");
+  const delay = document.querySelector("#delay");
+
+//   function setAlarm() {
+//     setTimeout(() => {
+//       output.textContent = "Wake Up";
+//     }, 1000);
+//   }
+  button.addEventListener("click", setAlarm);
+
+  function alarm(person, delay) {
+    return new Promise((resolve, reject) => {
+      if (delay < 0) {
+        throw new Error("Alarm delay must not be negative");
+      }
+      setTimeout(() => {
+        resolve(`Wake up, ${person}!`);
+      }, delay);
+    });
+  }
+
+  button.addEventListener("click", () => {
+    alarm(name.value, delay.value)
+      .then((message) => (output.textContent = message))
+      .catch((error) => (output.textContent = `Could not set alarm: ${error}`));
+  });
+</script>
